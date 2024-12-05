@@ -1,4 +1,5 @@
 #include <iostream> 
+#include <iomanip>
 #include <string>
 #include <fstream> 
 using namespace std;
@@ -19,7 +20,7 @@ int main()
 // pressEnterToContinue: used to keep the console window open long enough to see your program's output
 void pressEnterToContinue(void) {
 	char c;
-	cout << "Press Enter to continue...";
+	cout << "\nPress Enter to continue...";
 	cin.ignore(1024, '\n');
 	do { cin.get(c); } while (c != '\n' && c != EOF);
 	return;
@@ -66,73 +67,75 @@ int readFromFile(string filename)
         return 0;
     }
 
-    while (!inFile.eof())
+    while (true)
     {
         char temp;
         inFile >> temp;
+        if (inFile.eof())
+            break;
         if (isalpha(temp))
         {
             characters++;
             temp = toupper(temp);
             switch (temp)
             {
-            case 'A': a++;
-            case 'B': b++;
-            case 'C': c++;
-            case 'D': d++;
-            case 'E': e++;
-            case 'F': f++;
-            case 'G': g++;
-            case 'H': h++;
-            case 'I': i++;
-            case 'J': j++;
-            case 'K': k++;
-            case 'L': l++;
-            case 'M': m++;
-            case 'N': n++;
-            case 'O': o++;
-            case 'P': p++;
-            case 'Q': q++;
-            case 'R': r++;
-            case 'S': s++;
-            case 'T': t++;
-            case 'U': u++;
-            case 'V': v++;
-            case 'W': w++;
-            case 'X': x++;
-            case 'Y': y++;
-            case 'Z': z++;
+            case 'A': a++; break;
+            case 'B': b++; break;
+            case 'C': c++; break;
+            case 'D': d++; break;
+            case 'E': e++; break;
+            case 'F': f++; break;
+            case 'G': g++; break;
+            case 'H': h++; break;
+            case 'I': i++; break;
+            case 'J': j++; break;
+            case 'K': k++; break;
+            case 'L': l++; break;
+            case 'M': m++; break;
+            case 'N': n++; break;
+            case 'O': o++; break;
+            case 'P': p++; break;
+            case 'Q': q++; break;
+            case 'R': r++; break;
+            case 'S': s++; break;
+            case 'T': t++; break;
+            case 'U': u++; break;
+            case 'V': v++; break;
+            case 'W': w++; break;
+            case 'X': x++; break;
+            case 'Y': y++; break;
+            case 'Z': z++; break;
             }
         }
     }
     inFile.close();
 
     //output
-    cout << "\nTotal number of letters: " << characters << "\nFrequencey: ";
-    cout << "'A': " << a;
-    cout << "'B': " << b;
-    cout << "'C': " << c;
-    cout << "'D': " << d;
-    cout << "'E': " << e;
-    cout << "'F': " << f;
-    cout << "'G': " << g;
-    cout << "'H': " << h;
-    cout << "'I': " << i;
-    cout << "'J': " << j;
-    cout << "'K': " << k;
-    cout << "'L': " << l;
-    cout << "'M': " << m;
-    cout << "'N': " << n;
-    cout << "'O': " << o;
-    cout << "'P': " << p;
-    cout << "'Q': " << q;
-    cout << "'R': " << r;
-    cout << "'S': " << s;
-    cout << "'T': " << t;
-    cout << "'U': " << u;
-    cout << "'V': " << v;
-    cout << "'W': " << w;
-    cout << "'X': " << x;
-    cout << "'Y': " << y;
-    cout << "'Z': " << z;
+    cout << "\nTotal number of letters: " << characters << "\nFrequencey: " << fixed << setprecision(3);
+    cout << "\n'A': " << setw(6) << (double) a / characters * 100;
+    cout << "\n'B': " << setw(6) << (double)b / characters * 100;
+    cout << "\n'C': " << setw(6) << (double)c / characters * 100;
+    cout << "\n'D': " << setw(6) << (double)d / characters * 100;
+    cout << "\n'E': " << setw(6) << (double)e / characters * 100;
+    cout << "\n'F': " << setw(6) << (double)f / characters * 100;
+    cout << "\n'G': " << setw(6) << (double)g / characters * 100;
+    cout << "\n'H': " << setw(6) << (double)h / characters * 100;
+    cout << "\n'I': " << setw(6) << (double)i / characters * 100;
+    cout << "\n'J': " << setw(6) << (double)j / characters * 100;
+    cout << "\n'K': " << setw(6) << (double)k / characters * 100;
+    cout << "\n'L': " << setw(6) << (double)l / characters * 100;
+    cout << "\n'M': " << setw(6) << (double)m / characters * 100;
+    cout << "\n'N': " << setw(6) << (double)n / characters * 100;
+    cout << "\n'O': " << setw(6) << (double)o / characters * 100;
+    cout << "\n'P': " << setw(6) << (double)p / characters * 100;
+    cout << "\n'Q': " << setw(6) << (double)q / characters * 100;
+    cout << "\n'R': " << setw(6) << (double)r / characters * 100;
+    cout << "\n'S': " << setw(6) << (double)s / characters * 100;
+    cout << "\n'T': " << setw(6) << (double)t / characters * 100;
+    cout << "\n'U': " << setw(6) << (double)u / characters * 100;
+    cout << "\n'V': " << setw(6) << (double)v / characters * 100;
+    cout << "\n'W': " << setw(6) << (double)w / characters * 100;
+    cout << "\n'X': " << setw(6) << (double)x / characters * 100;
+    cout << "\n'Y': " << setw(6) << (double)y / characters * 100;
+    cout << "\n'Z': " << setw(6) << (double)z / characters * 100;
 }
